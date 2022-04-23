@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -18,7 +19,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlin.math.abs
 
-
 class MainActivity : AppCompatActivity() {
     private lateinit var transactions: List<Transaction>
     private lateinit var deletedTransaction : Transaction
@@ -27,12 +27,18 @@ class MainActivity : AppCompatActivity() {
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var db : AppDatabase
 
+    private lateinit var monthYearText: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         window.navigationBarColor = resources.getColor(R.color.background_gray)
 
+        //Datehandling
+        initWidget()
+
+        //Budget Manager
         transactions = arrayListOf()
 
         transactionAdapter = TransactionAdapter(transactions)
@@ -43,7 +49,6 @@ class MainActivity : AppCompatActivity() {
             AppDatabase::class.java,
             "transactions"
         ).build()
-
 
         recyclerview.apply {
             adapter = transactionAdapter
@@ -75,6 +80,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Datehandling
+    private fun initWidget() {
+
+    }
+
+    // Budget Manager
     private fun fetchAll() {
         //background Thread -> increase user experience
         GlobalScope.launch {
