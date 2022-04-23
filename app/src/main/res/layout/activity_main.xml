@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/currentMonth"
+            android:id="@+id/month_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -28,7 +28,7 @@
                 android:background="@drawable/prev_month" />
 
             <TextView
-                android:id="@+id/monthYearTV"
+                android:id="@+id/currentMonth"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_below="@+id/currentMonth">
+            android:layout_below="@+id/month_layout">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -164,10 +164,10 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/foreground_gray"
             android:src="@drawable/ic_add"
             app:borderWidth="0dp"
-            app:tint="@color/text_gray"
-            android:backgroundTint="@color/foreground_gray"/>
+            app:tint="@color/text_gray" />
     </RelativeLayout>
     
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

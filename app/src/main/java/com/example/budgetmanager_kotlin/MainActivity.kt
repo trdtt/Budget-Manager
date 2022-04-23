@@ -17,6 +17,8 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import kotlin.math.abs
 
 class MainActivity : AppCompatActivity() {
@@ -27,7 +29,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var db : AppDatabase
 
-    private lateinit var monthYearText: TextView
+    private lateinit var monthYearText : TextView
+    private lateinit var selectedDate : LocalDate
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +39,19 @@ class MainActivity : AppCompatActivity() {
         window.navigationBarColor = resources.getColor(R.color.background_gray)
 
         //Datehandling
-        initWidget()
+        monthYearText = findViewById(R.id.currentMonth)
+        selectedDate = LocalDate.now()
+        setMonthView()
+
+        backBtn.setOnClickListener{
+            selectedDate = selectedDate.minusMonths(1)
+            setMonthView()
+        }
+
+        nextBtn.setOnClickListener {
+            selectedDate = selectedDate.plusMonths(1)
+            setMonthView()
+        }
 
         //Budget Manager
         transactions = arrayListOf()
@@ -81,8 +96,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Datehandling
-    private fun initWidget() {
+    private fun setMonthView() {
+        monthYearText.text = monthYearFromDate(selectedDate)
+    }
 
+    private fun monthYearFromDate(date : LocalDate): String? {
+        val formatter : DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy");
+        return date.format(formatter)
     }
 
     // Budget Manager
