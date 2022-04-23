@@ -2,10 +2,11 @@ package com.example.budgetmanager_kotlin
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -16,8 +17,9 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import kotlin.math.abs
-
 
 class MainActivity : AppCompatActivity() {
     private lateinit var transactions: List<Transaction>
@@ -27,12 +29,33 @@ class MainActivity : AppCompatActivity() {
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var db : AppDatabase
 
+    private lateinit var monthYearText : TextView
+    private lateinit var selectedDate : LocalDate
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         window.navigationBarColor = resources.getColor(R.color.background_gray)
 
+        //Datehandling
+        monthYearText = findViewById(R.id.currentMonth)
+        selectedDate = LocalDate.now()
+        setMonthView()
+
+        backBtn.setOnClickListener{
+            selectedDate = selectedDate.minusMonths(1)
+            setMonthView()
+            fetchAll()
+        }
+
+        nextBtn.setOnClickListener {
+            selectedDate = selectedDate.plusMonths(1)
+            setMonthView()
+            fetchAll()
+        }
+
+        //Budget Manager
         transactions = arrayListOf()
 
         transactionAdapter = TransactionAdapter(transactions)
@@ -43,7 +66,6 @@ class MainActivity : AppCompatActivity() {
             AppDatabase::class.java,
             "transactions"
         ).build()
-
 
         recyclerview.apply {
             adapter = transactionAdapter
@@ -75,10 +97,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Datehandling
+    private fun setMonthView() {
+        monthYearText.text = monthYearFromDate(selectedDate)
+    }
+
+    private fun monthYearFromDate(date : LocalDate): String {
+        val formatter : DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy");
+        return date.format(formatter)
+    }
+
+    // Budget Manager
     private fun fetchAll() {
         //background Thread -> increase user experience
         GlobalScope.launch {
-            transactions = db.transactionDao().getAll()
+            //transactions = db.transactionDao().getAll()
+            val currentDate = monthYearFromDate(selectedDate)
+            transactions = db.transactionDao().getWithDate(currentDate)
 
             runOnUiThread {
                 updateDashboard()
@@ -92,8 +127,8 @@ class MainActivity : AppCompatActivity() {
         val budgetAmount = transactions.filter { it.amount > 0 }.sumOf { it.amount }
         val expenseAmount = abs(transactions.filter { it.amount < 0 }.sumOf { it.amount })
 
-        balance.text = "€ %.2f".format(balanceAmount)
         budget.text = "€ %.2f".format(budgetAmount)
+        balance.text = "€ %.2f".format(balanceAmount)
         expense.text = "€ %.2f".format(expenseAmount)
     }
 

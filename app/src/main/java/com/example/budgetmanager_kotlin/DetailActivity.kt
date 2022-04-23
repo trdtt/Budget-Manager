@@ -27,7 +27,7 @@ class DetailActivity : AppCompatActivity() {
 
         transaction = intent.getSerializableExtra("transaction") as Transaction
         labelInput.setText(transaction.label)
-        amountInput.setText(transaction.amount.toString())
+        amountInput.setText((-transaction.amount).toString())
 
         detailRootView.setOnClickListener{
             this.window.decorView.clearFocus()
@@ -62,7 +62,8 @@ class DetailActivity : AppCompatActivity() {
                     amountLayout.error = "Please enter a valid amount"
                 }
                 else -> {
-                    val newTransaction = Transaction(transaction.id, label, -amount)
+                    val newTransaction = Transaction(transaction.id, label, -amount, transaction.date)
+                    //val newTransaction = Transaction(transaction.id, label, -amount)
                     update(newTransaction)
                 }
             }

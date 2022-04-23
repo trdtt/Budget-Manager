@@ -15,6 +15,8 @@ import kotlinx.android.synthetic.main.activity_add_transaction.labelLayout
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class AddTransactionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +53,9 @@ class AddTransactionActivity : AppCompatActivity() {
                     amountLayout.error = "Please enter a valid amount"
                 }
                 else -> {
-                    val transaction = Transaction(0, label, -amount)
+                    val currentDate = monthYearFromDate(LocalDate.now())
+                    val transaction = Transaction(0, label, -amount, currentDate)
+                    //val transaction = Transaction(0, label, -amount)
                     insert(transaction)
                 }
             }
@@ -73,5 +77,10 @@ class AddTransactionActivity : AppCompatActivity() {
             db.transactionDao().insertAll(transaction)
             finish()
         }
+    }
+
+    private fun monthYearFromDate(date : LocalDate): String {
+        val formatter : DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy");
+        return date.format(formatter)
     }
 }

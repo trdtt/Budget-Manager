@@ -5,7 +5,9 @@
       <map>
         <entry key="app/src/main/res/drawable/close_background.xml" value="0.151" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.204" />
+        <entry key="app/src/main/res/drawable/ic_backward.xml" value="0.1895" />
         <entry key="app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.204" />
+        <entry key="app/src/main/res/drawable/ic_forward.xml" value="0.1895" />
         <entry key="app/src/main/res/drawable/ic_label.xml" value="0.1435" />
         <entry key="app/src/main/res/drawable/ic_label_focus.xml" value="0.1435" />
         <entry key="app/src/main/res/drawable/ic_label_focused.xml" value="0.1435" />
@@ -14,10 +16,12 @@
         <entry key="app/src/main/res/drawable/ic_money_focused.xml" value="0.1435" />
         <entry key="app/src/main/res/drawable/label_selector.xml" value="0.1435" />
         <entry key="app/src/main/res/drawable/money_selector.xml" value="0.1435" />
+        <entry key="app/src/main/res/drawable/next_month.xml" value="0.1895" />
+        <entry key="app/src/main/res/drawable/prev_month.xml" value="0.1895" />
         <entry key="app/src/main/res/drawable/snackbar_bg.xml" value="0.1415" />
         <entry key="app/src/main/res/layout/activity_add_transaction.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_trashbin.xml" value="0.296875" />
         <entry key="app/src/main/res/layout/transaction_layout.xml" value="0.34010416666666665" />
       </map>
