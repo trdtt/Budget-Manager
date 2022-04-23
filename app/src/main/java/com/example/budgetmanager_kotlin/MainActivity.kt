@@ -2,11 +2,11 @@ package com.example.budgetmanager_kotlin
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -46,11 +46,13 @@ class MainActivity : AppCompatActivity() {
         backBtn.setOnClickListener{
             selectedDate = selectedDate.minusMonths(1)
             setMonthView()
+            fetchAll()
         }
 
         nextBtn.setOnClickListener {
             selectedDate = selectedDate.plusMonths(1)
             setMonthView()
+            fetchAll()
         }
 
         //Budget Manager
@@ -100,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         monthYearText.text = monthYearFromDate(selectedDate)
     }
 
-    private fun monthYearFromDate(date : LocalDate): String? {
+    private fun monthYearFromDate(date : LocalDate): String {
         val formatter : DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy");
         return date.format(formatter)
     }
@@ -109,7 +111,9 @@ class MainActivity : AppCompatActivity() {
     private fun fetchAll() {
         //background Thread -> increase user experience
         GlobalScope.launch {
-            transactions = db.transactionDao().getAll()
+            //transactions = db.transactionDao().getAll()
+            val currentDate = monthYearFromDate(selectedDate)
+            transactions = db.transactionDao().getWithDate(currentDate)
 
             runOnUiThread {
                 updateDashboard()
@@ -123,8 +127,8 @@ class MainActivity : AppCompatActivity() {
         val budgetAmount = transactions.filter { it.amount > 0 }.sumOf { it.amount }
         val expenseAmount = abs(transactions.filter { it.amount < 0 }.sumOf { it.amount })
 
-        balance.text = "€ %.2f".format(balanceAmount)
         budget.text = "€ %.2f".format(budgetAmount)
+        balance.text = "€ %.2f".format(balanceAmount)
         expense.text = "€ %.2f".format(expenseAmount)
     }
 

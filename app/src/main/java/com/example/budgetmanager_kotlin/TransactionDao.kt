@@ -15,4 +15,7 @@ interface TransactionDao {
 
     @Update
     fun update(vararg transaction: Transaction)
+
+    @Query("SELECT * FROM transactions WHERE date LIKE :current_date")
+    fun getWithDate(current_date: String): List<Transaction>
 }

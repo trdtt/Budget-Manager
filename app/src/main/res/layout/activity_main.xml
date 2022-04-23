@@ -61,13 +61,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
-                android:text="total budget"
+                android:text="total balance"
                 android:textAllCaps="true"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/budget"
+                android:id="@+id/balance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -97,7 +97,7 @@
                     android:layout_weight="0.5"
                     android:gravity="center">
                     <TextView
-                        android:id="@+id/balance"
+                        android:id="@+id/budget"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="400€"
@@ -107,7 +107,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Balance"
+                        android:text="Budget"
                         android:textSize="14sp"
                         android:textAllCaps="true"/>
                 </LinearLayout>
