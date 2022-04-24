@@ -8,10 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green">#4CAF50</color>
-    <color name="red">#FF3131</color>
+    <color name="red">#C1F44336</color>
     <color name="foreground_gray">#1E1E1E</color>
     <color name="text_gray">#B8B8B8</color>
     <color name="background_gray">#121212</color>
     <color name="activate_green">#90EE90</color>
+    <color name="button_gray">#282828</color>
 
 </resources>
