@@ -52,7 +52,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="50dp"
             android:hint="Amount"
             app:errorEnabled="true">
 
@@ -81,7 +81,9 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="5dp"
+                android:backgroundTint="@color/button_gray"
                 android:text="Groceries"
+                android:textColor="@color/text_gray"
                 app:cornerRadius="14dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -92,7 +94,9 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="5dp"
+                android:backgroundTint="@color/button_gray"
                 android:text="Online"
+                android:textColor="@color/text_gray"
                 app:cornerRadius="14dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -103,7 +107,9 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="5dp"
+                android:backgroundTint="@color/button_gray"
                 android:text="Restaurant"
+                android:textColor="@color/text_gray"
                 android:textSize="12sp"
                 app:cornerRadius="14dp" />
 
@@ -115,7 +121,9 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="5dp"
+                android:backgroundTint="@color/button_gray"
                 android:text="Culture"
+                android:textColor="@color/text_gray"
                 app:cornerRadius="14dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -126,7 +134,9 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="5dp"
+                android:backgroundTint="@color/button_gray"
                 android:text="Bakery"
+                android:textColor="@color/text_gray"
                 android:textSize="14sp"
                 app:cornerRadius="14dp" />
 
@@ -138,7 +148,9 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="5dp"
+                android:backgroundTint="@color/button_gray"
                 android:text="Gift"
+                android:textColor="@color/text_gray"
                 app:cornerRadius="14dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -149,7 +161,10 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="5dp"
-                android:text="20€"
+                android:backgroundTint="@color/button_gray"
+                android:text="50€"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
                 app:cornerRadius="14dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -160,7 +175,10 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="5dp"
-                android:text="10€"
+                android:backgroundTint="@color/button_gray"
+                android:text="20€"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
                 app:cornerRadius="14dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -171,7 +189,10 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="5dp"
-                android:text="5€"
+                android:backgroundTint="@color/button_gray"
+                android:text="10€"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
                 app:cornerRadius="14dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -182,7 +203,10 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="5dp"
-                android:text="2€"
+                android:backgroundTint="@color/button_gray"
+                android:text="5€"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
                 app:cornerRadius="14dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -193,7 +217,52 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="5dp"
+                android:backgroundTint="@color/button_gray"
+                android:text="2€"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
+                app:cornerRadius="14dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/amount6"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/button_gray"
                 android:text="1€"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp"
+                app:cornerRadius="14dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/unused"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/button_gray"
+                android:text=""
+                android:textColor="@color/text_gray"
+                app:cornerRadius="14dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/clear"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/button_gray"
+                app:icon="@drawable/ic_clear"
+                app:iconTint="@color/text_gray"
+                app:iconGravity="textStart"
+                android:paddingRight="7dp"
                 app:cornerRadius="14dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -204,8 +273,10 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="5dp"
+                android:backgroundTint="@color/button_gray"
                 android:text="-"
-                android:textSize="18sp"
+                android:textColor="@color/text_gray"
+                android:textSize="24sp"
                 app:cornerRadius="14dp" />
 
         </GridLayout>
@@ -215,7 +286,7 @@
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="40dp"
             android:backgroundTint="@color/red"
             android:padding="13dp"

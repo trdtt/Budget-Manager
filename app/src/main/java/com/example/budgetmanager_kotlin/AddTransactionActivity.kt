@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_add_transaction.amountLayout
 import kotlinx.android.synthetic.main.activity_add_transaction.closeBtn
 import kotlinx.android.synthetic.main.activity_add_transaction.labelInput
 import kotlinx.android.synthetic.main.activity_add_transaction.labelLayout
-import kotlinx.android.synthetic.main.activity_detail.*
+import kotlinx.android.synthetic.main.transaction_layout.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.time.LocalDate
@@ -85,7 +85,13 @@ class AddTransactionActivity : AppCompatActivity(), View.OnClickListener {
             R.id.amount3 -> changeAmount(amount3)
             R.id.amount4 -> changeAmount(amount4)
             R.id.amount5 -> changeAmount(amount5)
+            R.id.amount6 -> changeAmount(amount6)
 
+            R.id.unused -> {}
+            R.id.clear -> {
+                labelInput.setText("")
+                amountInput.setText("")
+            }
             R.id.sign -> {
                 var amount : Double = amountInput.text.toString().toDoubleOrNull().let { it ?: 0.0 }
                 amount = -amount
@@ -107,7 +113,10 @@ class AddTransactionActivity : AppCompatActivity(), View.OnClickListener {
         val amount3 : Button = findViewById(R.id.amount3)
         val amount4 : Button = findViewById(R.id.amount4)
         val amount5 : Button = findViewById(R.id.amount5)
+        val amount6 : Button = findViewById(R.id.amount6)
 
+        val unused : Button = findViewById(R.id.unused)
+        val clear : Button = findViewById(R.id.clear)
         val sign : Button = findViewById(R.id.sign)
 
         label1.setOnClickListener(this)
@@ -121,6 +130,9 @@ class AddTransactionActivity : AppCompatActivity(), View.OnClickListener {
         amount3.setOnClickListener(this)
         amount4.setOnClickListener(this)
         amount5.setOnClickListener(this)
+        amount6.setOnClickListener(this)
+        unused.setOnClickListener(this)
+        clear.setOnClickListener(this)
         sign.setOnClickListener(this)
     }
 
