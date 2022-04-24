@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/transactionRootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/transactionRootView"
     tools:context=".AddTransactionActivity">
 
     <ImageButton
@@ -41,8 +41,8 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/label_selector"
                 android:drawablePadding="12dp"
-                android:maxLines="1"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -52,6 +52,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
+            android:layout_marginBottom="100dp"
             android:hint="Amount"
             app:errorEnabled="true">
 
@@ -61,24 +62,167 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/money_selector"
                 android:drawablePadding="12dp"
-                android:maxLines="1"
-                android:inputType="numberDecimal|numberSigned"/>
+                android:inputType="numberDecimal|numberSigned"
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:columnCount="3"
+            android:rowCount="4">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/label1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="5dp"
+                android:text="Groceries"
+                app:cornerRadius="14dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/label2"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="5dp"
+                android:text="Online"
+                app:cornerRadius="14dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/label3"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="5dp"
+                android:text="Restaurant"
+                android:textSize="12sp"
+                app:cornerRadius="14dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/label4"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="5dp"
+                android:text="Culture"
+                app:cornerRadius="14dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/label5"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="5dp"
+                android:text="Bakery"
+                android:textSize="14sp"
+                app:cornerRadius="14dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/label6"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="5dp"
+                android:text="Gift"
+                app:cornerRadius="14dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/amount1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="5dp"
+                android:text="20€"
+                app:cornerRadius="14dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/amount2"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="5dp"
+                android:text="10€"
+                app:cornerRadius="14dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/amount3"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="5dp"
+                android:text="5€"
+                app:cornerRadius="14dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/amount4"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="5dp"
+                android:text="2€"
+                app:cornerRadius="14dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/amount5"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="5dp"
+                android:text="1€"
+                app:cornerRadius="14dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sign"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="5dp"
+                android:text="-"
+                android:textSize="18sp"
+                app:cornerRadius="14dp" />
+
+        </GridLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/addTransactionBtn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Save"
+            android:layout_height="65dp"
             android:layout_marginStart="40dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="40dp"
-            android:padding="13dp"
             android:backgroundTint="@color/red"
-            android:textColor="@color/white"
+            android:padding="13dp"
+            android:text="Save"
             android:textAllCaps="false"
+            android:textColor="@color/white"
             android:textSize="16dp"
-            app:cornerRadius="14dp"
-            />
-
+            app:cornerRadius="14dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
