@@ -58,7 +58,9 @@ class AddTransactionActivity : AppCompatActivity(), View.OnClickListener {
                     amountLayout.error = "Please enter a valid amount"
                 }
                 else -> {
-                    val currentDate = monthYearFromDate(LocalDate.now())
+                    val currentDate = LocalDate.now().toString()
+                    val d = LocalDate.now().toString()
+                    println("date: $d")
                     val transaction = Transaction(0, label, -amount, currentDate)
                     //val transaction = Transaction(0, label, -amount)
                     insert(transaction)

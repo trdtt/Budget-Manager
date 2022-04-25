@@ -28,6 +28,7 @@ class DetailActivity : AppCompatActivity() {
         transaction = intent.getSerializableExtra("transaction") as Transaction
         labelInput.setText(transaction.label)
         amountInput.setText((-transaction.amount).toString())
+        dateInput.setText(transaction.date)
 
         detailRootView.setOnClickListener{
             this.window.decorView.clearFocus()
@@ -37,15 +38,16 @@ class DetailActivity : AppCompatActivity() {
         }
 
         labelInput.addTextChangedListener {
-            updateBtn.visibility = View.VISIBLE
-
             if (it!!.count() > 0)
                 labelLayout.error = null
         }
 
         amountInput.addTextChangedListener {
-            updateBtn.visibility = View.VISIBLE
+            if (it!!.count() > 0)
+                amountLayout.error = null
+        }
 
+        dateInput.addTextChangedListener {
             if (it!!.count() > 0)
                 amountLayout.error = null
         }
@@ -53,6 +55,8 @@ class DetailActivity : AppCompatActivity() {
         updateBtn.setOnClickListener {
             val label = labelInput.text.toString()
             val amount = amountInput.text.toString().toDoubleOrNull()
+            val date = dateInput.text.toString()
+            val dateFormat = Regex("\\d{4}-\\d{2}-\\d{2}")
 
             when {
                 label.isEmpty() -> {
@@ -61,10 +65,12 @@ class DetailActivity : AppCompatActivity() {
                 amount == null -> {
                     amountLayout.error = "Please enter a valid amount"
                 }
-                else -> {
-                    val newTransaction = Transaction(transaction.id, label, -amount, transaction.date)
-                    //val newTransaction = Transaction(transaction.id, label, -amount)
+                date.matches(dateFormat) -> {
+                    val newTransaction = Transaction(transaction.id, label, -amount, date)
                     update(newTransaction)
+                }
+                else -> {
+                    dateLayout.error = "Please enter a valid date"
                 }
             }
         }

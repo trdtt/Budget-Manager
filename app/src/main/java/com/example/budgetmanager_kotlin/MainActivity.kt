@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.time.LocalDate
+import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 import kotlin.math.abs
 
@@ -107,12 +108,17 @@ class MainActivity : AppCompatActivity() {
         return date.format(formatter)
     }
 
+    private fun convertToQuery(date : LocalDate) : String {
+        val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM")
+        return date.format(formatter) + "%"
+    }
+
+
     // Budget Manager
     private fun fetchAll() {
         //background Thread -> increase user experience
         GlobalScope.launch {
-            //transactions = db.transactionDao().getAll()
-            val currentDate = monthYearFromDate(selectedDate)
+            val currentDate = convertToQuery(selectedDate)
             transactions = db.transactionDao().getWithDate(currentDate)
 
             runOnUiThread {
