@@ -9,6 +9,7 @@
         <entry key="app/src/main/res/drawable/ic_backward.xml" value="0.1895" />
         <entry key="app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.204" />
         <entry key="app/src/main/res/drawable/ic_clear.xml" value="0.1865" />
+        <entry key="app/src/main/res/drawable/ic_close.xml" value="0.2565" />
         <entry key="app/src/main/res/drawable/ic_date.xml" value="0.16" />
         <entry key="app/src/main/res/drawable/ic_forward.xml" value="0.1895" />
         <entry key="app/src/main/res/drawable/ic_label.xml" value="0.1435" />
@@ -17,13 +18,15 @@
         <entry key="app/src/main/res/drawable/ic_money.xml" value="0.1435" />
         <entry key="app/src/main/res/drawable/ic_money_focus.xml" value="0.1435" />
         <entry key="app/src/main/res/drawable/ic_money_focused.xml" value="0.1435" />
+        <entry key="app/src/main/res/drawable/ic_settings.xml" value="0.2565" />
         <entry key="app/src/main/res/drawable/label_selector.xml" value="0.1435" />
         <entry key="app/src/main/res/drawable/money_selector.xml" value="0.1435" />
         <entry key="app/src/main/res/drawable/next_month.xml" value="0.1895" />
         <entry key="app/src/main/res/drawable/prev_month.xml" value="0.1895" />
         <entry key="app/src/main/res/drawable/snackbar_bg.xml" value="0.1415" />
-        <entry key="app/src/main/res/layout/activity_add_transaction.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_add_transaction.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_dialog.xml" value="0.32447916666666665" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_trashbin.xml" value="0.296875" />
         <entry key="app/src/main/res/layout/transaction_layout.xml" value="0.34010416666666665" />
