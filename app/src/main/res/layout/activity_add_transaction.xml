@@ -110,7 +110,7 @@
                 android:backgroundTint="@color/button_gray"
                 android:text="Restaurant"
                 android:textColor="@color/text_gray"
-                android:textSize="12sp"
+                android:textSize="30px"
                 app:cornerRadius="14dp" />
 
             <com.google.android.material.button.MaterialButton

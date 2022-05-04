@@ -3,9 +3,12 @@ package com.example.budgetmanager_kotlin
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.TypedValue
+import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
 import androidx.room.Room
 import com.google.android.material.button.MaterialButton
@@ -15,13 +18,14 @@ import kotlinx.android.synthetic.main.activity_add_transaction.amountLayout
 import kotlinx.android.synthetic.main.activity_add_transaction.closeBtn
 import kotlinx.android.synthetic.main.activity_add_transaction.labelInput
 import kotlinx.android.synthetic.main.activity_add_transaction.labelLayout
+import kotlinx.android.synthetic.main.activity_add_transaction.view.*
 import kotlinx.android.synthetic.main.transaction_layout.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class AddTransactionActivity : AppCompatActivity(), View.OnClickListener {
+class AddTransactionActivity : AppCompatActivity(), View.OnClickListener, View.OnLongClickListener, ButtonDialog.ButtonDialogListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_transaction)
@@ -62,7 +66,6 @@ class AddTransactionActivity : AppCompatActivity(), View.OnClickListener {
                     val d = LocalDate.now().toString()
                     println("date: $d")
                     val transaction = Transaction(0, label, -amount, currentDate)
-                    //val transaction = Transaction(0, label, -amount)
                     insert(transaction)
                 }
             }
@@ -102,6 +105,48 @@ class AddTransactionActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    override fun onLongClick(v: View): Boolean {
+        val btn : Button = findViewById(v.id)
+        openDialog(btn)
+        return true
+    }
+
+    override fun applyTexts(label: String, sizeOfText: Float?, btn: Button) {
+        if(label != "")
+            btn.text = label
+        if(sizeOfText != null)
+            btn.setTextSize(TypedValue.COMPLEX_UNIT_PX, sizeOfText)
+    }
+
+    private fun openDialog(b: Button) {
+        val buttonDialog = ButtonDialog(b)
+        buttonDialog.show(supportFragmentManager, "")
+    }
+
+    private fun changeAmount(amount : MaterialButton) {
+        val oldAmount : Double = amountInput.text.toString().toDoubleOrNull().let { it ?: 0.0 }
+        val newAmount : Double = oldAmount + rmEuro(amount.text.toString())
+        amountInput.setText(newAmount.toString())
+    }
+
+    private fun rmEuro(amount: String): Double {
+        val noEuro = amount.replace("€", "")
+        return noEuro.toDouble()
+    }
+
+    private fun insert(transaction: Transaction) {
+        val db = Room.databaseBuilder(
+            this,
+            AppDatabase::class.java,
+            "transactions"
+        ).build()
+
+        GlobalScope.launch {
+            db.transactionDao().insertAll(transaction)
+            finish()
+        }
+    }
+
     private fun initButtons() {
         val label1 : Button = findViewById(R.id.label1)
         val label2 : Button = findViewById(R.id.label2)
@@ -136,34 +181,18 @@ class AddTransactionActivity : AppCompatActivity(), View.OnClickListener {
         unused.setOnClickListener(this)
         clear.setOnClickListener(this)
         sign.setOnClickListener(this)
-    }
 
-    private fun changeAmount(amount : MaterialButton) {
-        val oldAmount : Double = amountInput.text.toString().toDoubleOrNull().let { it ?: 0.0 }
-        val newAmount : Double = oldAmount + rmEuro(amount.text.toString())
-        amountInput.setText(newAmount.toString())
-    }
-
-    private fun rmEuro(amount: String): Double {
-        val noEuro = amount.replace("€", "")
-        return noEuro.toDouble()
-    }
-
-    private fun insert(transaction: Transaction) {
-        val db = Room.databaseBuilder(
-            this,
-            AppDatabase::class.java,
-            "transactions"
-        ).build()
-
-        GlobalScope.launch {
-            db.transactionDao().insertAll(transaction)
-            finish()
-        }
-    }
-
-    private fun monthYearFromDate(date: LocalDate): String {
-        val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy")
-        return date.format(formatter)
+        label1.setOnLongClickListener(this)
+        label2.setOnLongClickListener(this)
+        label3.setOnLongClickListener(this)
+        label4.setOnLongClickListener(this)
+        label5.setOnLongClickListener(this)
+        label6.setOnLongClickListener(this)
+        amount1.setOnLongClickListener(this)
+        amount2.setOnLongClickListener(this)
+        amount3.setOnLongClickListener(this)
+        amount4.setOnLongClickListener(this)
+        amount5.setOnLongClickListener(this)
+        amount6.setOnLongClickListener(this)
     }
 }

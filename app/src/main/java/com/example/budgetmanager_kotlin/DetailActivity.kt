@@ -3,11 +3,9 @@ package com.example.budgetmanager_kotlin
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.core.widget.addTextChangedListener
 import androidx.room.Room
-import kotlinx.android.synthetic.main.activity_add_transaction.*
 import kotlinx.android.synthetic.main.activity_add_transaction.amountInput
 import kotlinx.android.synthetic.main.activity_add_transaction.amountLayout
 import kotlinx.android.synthetic.main.activity_add_transaction.closeBtn
