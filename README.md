@@ -1,5 +1,5 @@
 # Budget-Manager
-The Budget Manager is a simple & intuitive app to track your incomes and expenses. 
+The Budget Manager is a simple & intuitive Android-App to track your incomes and expenses. 
 
 ## Features & Usage
 ### Start Screen
@@ -8,9 +8,9 @@ The start screen displays a simple overview on all expenses, incomes and remaini
 ![MainScreen](images/MainScreen.png)
 
 ### Edit Screen
-To ensure a quick and convenient input of new expenses or income, 6 buttons can be assigned to the most frequently 
-used inputs/outputs. The screenshot displays the default settings for the 6 buttons. Similarly, for the amount of money, 
-multiple presses of the button will accumulate the values.
+To ensure a quick and convenient input of new expenses or income, six buttons can be assigned to the most frequently 
+incomes/expenses. The screenshot displays the default settings for the six buttons. The same principle applies when 
+entering the price, where the total price results from clicking on the different values multiple times.
 
 ![EditScreen](images/EditScreen.png)
 
