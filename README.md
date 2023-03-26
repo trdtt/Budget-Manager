@@ -18,7 +18,7 @@ multiple presses of the button will accumulate the values.
 If the predefined labels or money amounts are not suitable, users can modify them by long-pressing the respective 
 buttons. If the new label is too long to fit on the button, the font size can also be adjusted.
 
-![RenameButton](images/RenameButton.png)
+![RenameButton](images/RenameButtons.png)
 
 ### Swipe to delete 
 Quickly delete wrong incoming or expenses with one swipe.
